@@ -18,9 +18,9 @@ class BookManager {
     func showAllBooks() -> String {
         var strTmp:String = ""
         for bookTmp in bookList {
-            strTmp.append("Name : \(bookTmp.name)\n")
-            strTmp.append("Genre : \(bookTmp.genre)\n")
-            strTmp.append("Author : \(bookTmp.author)\n")
+            strTmp.append("Name : \(bookTmp.name!)\n")
+            strTmp.append("Genre : \(bookTmp.genre!)\n")
+            strTmp.append("Author : \(bookTmp.author!)\n")
             strTmp.append("-----------------------------\n")
         }
         return strTmp
@@ -33,10 +33,10 @@ class BookManager {
     func searchBook(name:String) -> String? {
         var strTmp = ""
         for bookTmp in bookList {
-            if bookTmp.name == name {
-                strTmp.append("Name : \(bookTmp.name)\n")
-                strTmp.append("Genre : \(bookTmp.genre)\n")
-                strTmp.append("Author : \(bookTmp.author)\n")
+            if bookTmp.name! == name {
+                strTmp.append("Name : \(bookTmp.name!)\n")
+                strTmp.append("Genre : \(bookTmp.genre!)\n")
+                strTmp.append("Author : \(bookTmp.author!)\n")
                 strTmp.append("-----------------------------\n")
                 
                 return strTmp
@@ -47,7 +47,7 @@ class BookManager {
     
     func removeBook(name:String) {
         for (index, value) in bookList.enumerated() {
-            if value.name == name {
+            if value.name! == name {
                 bookList.remove(at: index)
             }
         }
